@@ -1,19 +1,23 @@
-const http = require('http');
+// const http = require('http');
+// const fs = require('fs');
 
-const server = http.createServer();
 //For Learning
 //Event
 //Stream
 //clusters --- only node
 
-server.on('request',(req,res) => {
-  res.write("Hello node \n");
+/** Normal Creation of sever **/
+//const server = http.createServer();
+//
+// server.on('request',(req,res) => {
+//   res.end(fs.readFileSync(__dirname+'/../client/index.html'));
+// });
+//
+// server.listen(8080);
 
-  setTimeout(() => {
-    res.write("Stil on.....\n");
-    res.end();
-  },1000);
+/** Now with the express **/
+const express = require('express');
+const app = express();
 
-});
-
-server.listen(8080);
+app.use(express.static('client'))
+app.listen(8080);
